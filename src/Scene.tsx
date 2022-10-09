@@ -1,14 +1,11 @@
-import { OrbitControls, OrthographicCamera, PerspectiveCamera, SpotLight, Stars, useDepthBuffer} from '@react-three/drei';
-import { useFrame } from '@react-three/fiber';
-import { Suspense, useRef } from 'react';
+import { OrbitControls, SpotLight, Stars, useDepthBuffer} from '@react-three/drei';
+import { Suspense } from 'react';
 import { BoomBox } from './BoomBox';
 import { Crystal } from './Crystal';
 import { KiloLab } from './KiloLab';
-import { Camera } from 'three';
 
 export const Scene = () => {
   const depthBuffer = useDepthBuffer();
-  const camera = useRef<Camera>(null!);
   return (
     <Suspense fallback={null}>
       <color attach="background" args={["black"]} />

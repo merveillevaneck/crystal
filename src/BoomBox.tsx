@@ -6,9 +6,7 @@ import { Suspense, useEffect, useRef, useState } from 'react';
 import { PositionalAudio, SpotLight, useGLTF } from '@react-three/drei'
 import { useSpring, animated } from '@react-spring/three';
 import { GLTF } from 'three-stdlib'
-import { Mesh, PositionalAudio as PositionalAudioImpl, AudioAnalyser } from 'three';
-import { useFrame } from '@react-three/fiber';
-import { min, avg } from './util';
+import { Mesh, PositionalAudio as PositionalAudioImpl } from 'three';
 
 type GLTFResult = GLTF & {
   nodes: {
