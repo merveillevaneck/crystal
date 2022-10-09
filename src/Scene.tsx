@@ -1,5 +1,4 @@
-import React from 'react'
-import { OrbitControls, Environment, Plane, SpotLight, Stars} from '@react-three/drei';
+import { OrbitControls, SpotLight, Stars} from '@react-three/drei';
 import { Model } from './Crystal';
 import { KiloLab } from './KiloLab';
 
@@ -9,7 +8,7 @@ export const Scene = () => {
       <color attach="background" args={["black"]} />
       <group>
         <Model />
-        <OrbitControls autoRotate autoRotateSpeed={-0.1} maxDistance={10} minDistance={10} minPolarAngle={Math.PI / 5} maxPolarAngle={Math.PI / 5} />
+        <OrbitControls autoRotate autoRotateSpeed={-0.5} maxDistance={10} minDistance={10} minPolarAngle={Math.PI / 5} maxPolarAngle={Math.PI / 5} />
       </group>
       <SpotLight
         penumbra={0.05}
