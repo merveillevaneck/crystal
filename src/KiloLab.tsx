@@ -20,11 +20,10 @@ export const KiloLab = () => {
   }
   const onClick = () => {
     setHovered(h => !h);
+    window.open('https://www.kilolab.co.za')
   }
-  console.log('hovered', hovered);
   return (
     <animated.group
-      position={[-5, -5, -5]}
       rotation={[Math.PI/4, Math.PI / 2, -Math.PI/4]}
       ref={ref}
       scale={scale}
@@ -34,10 +33,11 @@ export const KiloLab = () => {
       <Text3D
         isMesh
         font={"/Inter_Bold.json"}
+        position={[3, 0, 10]}
       >
-        <pointLight position={[2, 2, 2]} intensity={0.1} />
+        <pointLight position={[2, 2, 2]} intensity={0.05} />
         KiloLab
-        <meshStandardMaterial color="#8EE3C8" />
+        <meshPhysicalMaterial />
       </Text3D>
     </animated.group>
   )
