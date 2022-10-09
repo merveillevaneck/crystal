@@ -1,10 +1,11 @@
 import { OrbitControls, SpotLight, Stars} from '@react-three/drei';
+import { Suspense } from 'react';
 import { Model } from './Crystal';
 import { KiloLab } from './KiloLab';
 
 export const Scene = () => {
   return (
-    <>
+    <Suspense fallback={null}>
       <color attach="background" args={["black"]} />
       <group>
         <Model />
@@ -26,8 +27,8 @@ export const Scene = () => {
         color="#8EE3C8"
         castShadow
       />
-        <KiloLab />
+      <KiloLab />
       <Stars />
-    </>
+    </Suspense>
   )
 }
