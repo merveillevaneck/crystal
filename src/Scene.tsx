@@ -1,34 +1,37 @@
-import { OrbitControls, SpotLight, Stars} from '@react-three/drei';
+import { OrbitControls, SpotLight, Stars, useDepthBuffer} from '@react-three/drei';
 import { Suspense } from 'react';
-import { Model } from './Crystal';
+import { BoomBox } from './BoomBox';
+import { Crystal } from './Crystal';
 import { KiloLab } from './KiloLab';
 
 export const Scene = () => {
+  const depthBuffer = useDepthBuffer();
   return (
     <Suspense fallback={null}>
       <color attach="background" args={["black"]} />
-      <group>
-        <Model />
-        <OrbitControls autoRotate autoRotateSpeed={-0.5} maxDistance={10} minDistance={10} minPolarAngle={Math.PI / 5} maxPolarAngle={Math.PI / 5} />
-      </group>
+      <Crystal />
+      <BoomBox />
+      <KiloLab />
       <SpotLight
-        penumbra={0.05}
+        penumbra={1}
         position={[4, 3, 0]}
         intensity={2}
         angle={0.5}
         color="#6C63FF"
         castShadow
+        depthBuffer={depthBuffer}
       />
       <SpotLight
-        penumbra={0.05}
+        penumbra={1}
         position={[-4, 3, 0]}
         intensity={2}
         angle={0.5}
         color="#8EE3C8"
         castShadow
+        depthBuffer={depthBuffer}
       />
-      <KiloLab />
       <Stars />
+      <OrbitControls autoRotate autoRotateSpeed={-0.5} maxDistance={15} minDistance={15} minPolarAngle={Math.PI / 5} maxPolarAngle={Math.PI / 5} />
     </Suspense>
   )
 }
