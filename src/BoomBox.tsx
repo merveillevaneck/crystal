@@ -24,7 +24,7 @@ export function BoomBox(props: JSX.IntrinsicElements['group']) {
 
   useEffect(() => {
     if (!target && mesh.current) setTarget(mesh.current);
-  }, [mesh.current])
+  }, [target, mesh.current])
 
 
   const audio = useRef<PositionalAudioImpl>(null!);
